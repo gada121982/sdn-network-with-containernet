@@ -27,7 +27,7 @@ d7 = net.addDocker('d7', ip='10.0.0.207', dimage="ubuntu:trusty")
 d8 = net.addDocker('d8', ip='10.0.0.208', dimage="ubuntu:trusty")
 
 d9 = net.addDocker('d9', ip='10.0.0.209', dimage="ubuntu:trusty")
-d10 = net.addDocker('d10', ip='10.0.0.2010', dimage="ubuntu:trusty")
+d10 = net.addDocker('d10', ip='10.0.0.210', dimage="ubuntu:trusty")
 
 d11 = net.addDocker('d11', ip='10.0.0.211', dimage="ubuntu:trusty")
 d12 = net.addDocker('d12', ip='10.0.0.212', dimage="ubuntu:trusty")
