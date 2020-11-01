@@ -14,7 +14,11 @@ info('*** Adding controller\n')
 net.addController('c0')
 info('*** Adding docker containers\n')
 
-d1 = net.addDocker('d1', ip='10.0.0.201', dimage="ubuntu:trusty")
+FOLDER_ROOT = "/home/vinhhai/all/school/n4/do-an/code/sdn-network-with-containernet/traffic"
+BINDING_VOLUME = f'{FOLDER_ROOT}:/home/traffic'
+
+
+d1 = net.addDocker('d1', ip='10.0.0.201', volumes=[BINDING_VOLUME], dimage="ubuntu:trusty")
 d2 = net.addDocker('d2', ip='10.0.0.202', dimage="ubuntu:trusty")
 
 d3 = net.addDocker('d3', ip='10.0.0.203', dimage="ubuntu:trusty")
@@ -71,7 +75,12 @@ net.start()
 info('*** Testing connectivity\n')
 
 
-info('*** Running CLI\n')
 CLI(net)
+
+d1.cmd('apt-get install tcpdump -y')
+d1.cmd('tcpdump -w /home/traffic/d1-eth0.pcap -i d1-eth0')
+
+
+info('*** Running CLI\n')
 info('*** Stopping network')
 net.stop()
