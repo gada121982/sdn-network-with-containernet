@@ -14,7 +14,6 @@ info('*** Adding controller\n')
 net.addController('c0')
 info('*** Adding docker containers\n')
 
-
 d1 = net.addDocker('d1', ip='10.0.0.201', dimage="ubuntu:trusty")
 d2 = net.addDocker('d2', ip='10.0.0.202', dimage="ubuntu:trusty")
 
@@ -44,7 +43,6 @@ info('*** Adding switches\n')
 s1 = net.addSwitch('s1')
 s2 = net.addSwitch('s2')
 
-
 info('*** Creating links\n')
 net.addLink(d1, s1)
 net.addLink(d2, s1)
@@ -56,7 +54,6 @@ net.addLink(d7, s1)
 net.addLink(d8, s1)
 
 net.addLink(s1, s2, cls=TCLink, delay='100ms', bw=1)
-
 
 net.addLink(d9, s2)
 net.addLink(d10, s2)
