@@ -72,14 +72,18 @@ info('*** Starting network\n')
 net.start()
 
 
-info('*** Testing connectivity\n')
+info('*** Seetup port mirroring\n')
+s1.cmd('ovs-vsctl del-port s1-eth1')
+s1.cmd('ovs-vsctl add-port s1 s1-eth1 -- --id=@p get port s1-eth1 -- --id=@m create mirror name=m0 select-all=true output-port=@p -- set bridge s1 mirrors=@m')
+
+info('*** Install package that neccessary\n')
+d1.cmd('apt-get update -y')
+d1.cmd('apt-get install htop -y')
+d1.cmd('apt-get install tcpdump -y')
+d1.cmd('apt-get install nano -y')
 
 
 CLI(net)
-
-d1.cmd('apt-get install tcpdump -y')
-d1.cmd('tcpdump -w /home/traffic/d1-eth0.pcap -i d1-eth0')
-
 
 info('*** Running CLI\n')
 info('*** Stopping network')
