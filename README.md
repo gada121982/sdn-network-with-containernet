@@ -24,7 +24,6 @@ wireshark -r test.pcap
 ```
 #ovs-vsctl del-port s1-eth1
 #ovs-vsctl add-port s1 s1-eth1 -- --id=@p get port s1-eth1 -- --id=@m create mirror name=m0 select-all=true output-port=@p -- set bridge s1 mirrors=@m
-
 ```
 
 ***2.4 Fix error tshark as root user***
@@ -41,9 +40,9 @@ edit disable_lua = false => disable_lua = true
 ```
 crontab -e
 > 
-*/3 * * * *  bash  /home/traffic/dumpTraffic.sh
+*/5 * * * *  bash  /home/traffic/dumpTraffic.sh
 
 ```
 
-
+https://phongdl.uit.edu.vn/huong-dan-tao-ket-noi-vpn-tren-ubuntu
 
