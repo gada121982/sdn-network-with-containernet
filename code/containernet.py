@@ -14,8 +14,8 @@ info('*** Adding controller\n')
 net.addController('c0')
 info('*** Adding docker containers\n')
 
-FOLDER_ROOT = "/home/vinhhai/all/school/n4/do-an/code/sdn-network-with-containernet/traffic"
-BINDING_VOLUME = f'{FOLDER_ROOT}:/home/traffic'
+FOLDER_ROOT = "/home/truc/sdn-network-with-containernet"
+BINDING_VOLUME = f'{FOLDER_ROOT}:/home/sdn-network-with-containernet'
 
 
 d1 = net.addDocker('d1', ip='10.0.0.201', volumes=[BINDING_VOLUME], dimage="ubuntu:trusty")

@@ -25,17 +25,6 @@ wireshark -r test.pcap
 #ovs-vsctl del-port s1-eth1
 #ovs-vsctl add-port s1 s1-eth1 -- --id=@p get port s1-eth1 -- --id=@m create mirror name=m0 select-all=true output-port=@p -- set bridge s1 mirrors=@m
 
-```
-
-***2.4 Fix error tshark as root user***
-```
-apt-get install tshark -y
-
-a table display , we choise 'no'
-
-Go to /usr/share/wireshark
-edit disable_lua = false => disable_lua = true
-```
 
 ***2.5 Setting crontab***
 ```
