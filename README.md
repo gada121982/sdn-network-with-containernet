@@ -28,11 +28,15 @@ wireshark -r test.pcap
 
 ***2.5 Setting crontab***
 ```
-crontab -e
+nano /etc/crontab
 > 
-*/3 * * * *  bash  /home/traffic/dumpTraffic.sh
+*/3 * * * *  bash  /home/sdn-network-with-containernet/dumpTraffic.sh
 
 ```
+
+sudo add-apt-repository ppa:jonathonf/openjdk
+sudo apt-get update
+sudo apt-get install openjdk-8-jdk
 
 
 
