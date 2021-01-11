@@ -14,5 +14,8 @@ sleep 300
 kill -9 $PID
 bash /home/sdn-network-with-containernet/core/convert_pcap_csv.sh $TIME.pcap
 
+node tools.js $TIME.csv
+
+
 
 

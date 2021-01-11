@@ -14,13 +14,7 @@
 ```
 tcpdump -w /home/traffic/test.pcap -i d1-eth0
 ```
-
-***2.2 Checking with wireshark***
-```
-wireshark -r test.pcap
-```
-
-***2.3 Setting mirror traffic port***
+***2.2 Setting mirror traffic port***
 ```
 #ovs-vsctl del-port s1-eth1
 #ovs-vsctl add-port s1 s1-eth1 -- --id=@p get port s1-eth1 -- --id=@m create mirror name=m0 select-all=true output-port=@p -- set bridge s1 mirrors=@m
@@ -33,10 +27,12 @@ nano /etc/crontab
 */3 * * * *  bash  /home/sdn-network-with-containernet/dumpTraffic.sh
 
 ```
+sudo apt-get install software-properties-common
 
-sudo add-apt-repository ppa:jonathonf/openjdk
+sudo add-apt-repository ppa:openjdk-r/ppa
 sudo apt-get update
 sudo apt-get install openjdk-8-jdk
 
+sudo apt install libpcap-dev
 
 
